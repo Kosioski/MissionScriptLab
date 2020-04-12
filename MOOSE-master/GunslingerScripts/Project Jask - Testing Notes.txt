@@ -1,0 +1,38 @@
+Project Jask - Testing Notes
+
+  
+1. REDDetection:SetRefreshTimeInterval(300)
+
+    Doesn't seem to exist as a function of the DETECION_AREAS class in MOOSE. 
+
+Test 1 - Trying this function               : FAILED
+
+
+
+2. Setting a national Border. - Maybe the airfields need to be in a national border to work.
+
+    LandBorder = ZONE_POLYGON:New( "RED BORDER ZONE", REDLandBorder )
+
+    Opted for the NewFromGroupName function of the ZONE_POLYGON-Class. 
+    Both return a ZONE_POLYGON object. Usage seemed less confusing.
+
+    IranianBorder = ZONE_POLYGON:NewFromGroupName("IRANIAN BORDER")
+
+Test 1 - Border defined NewFromGroupName    : FAILED
+Test 2 - Border defined New                 : FAILED
+
+
+
+3. Setting resource level in the SetSquadron function.
+
+    Was-    IranA2ADispatcher:SetSquadron("Alpha", AIRBASE.PersianGulf.Bandar_e_Jask_airfield, {"SQ IRAN F-5E-3"})
+    Trying- IranA2ADispatcher:SetSquadron("Alpha", AIRBASE.PersianGulf.Bandar_e_Jask_airfield, {"SQ IRAN F-5E-3"},20)
+
+Test 1 - Set resouce level                  : FAILED
+
+4. Set CAP interval.
+
+    IranA2ADispatcher:SetDefaultCapTimeInterval(600, 1800)
+
+Test 1 - Added this function in.            :FAILED
+
